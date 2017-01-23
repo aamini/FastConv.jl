@@ -5,7 +5,7 @@ Link: https://arxiv.org/abs/1612.08825
 
 
 ### Overview
-This package accomplishes two main contributions to convolutions in Julia.
+FastConv.jl makes two main contributions for computing convolutions in Julia.
 
 1. Accelerated convolutions for Machine Vision, Machine Learning applications.
 2. Scalable implementation of *n-dimensional* convolutions that do not exist in current base Julia software. 
