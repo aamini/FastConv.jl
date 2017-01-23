@@ -1,6 +1,7 @@
 # FastConv.jl
 ## Fast, Accelerated Convolution Computation in Julia
 
+Link: https://arxiv.org/abs/1612.08825
 
 
 ### Overview
