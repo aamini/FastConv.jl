@@ -1,0 +1,6 @@
+authors = ["Alexander Amini"]
+name = "FastConv"
+uuid = "22083eb0-c898-11e8-0742-69fd56cef0e9"
+version = "0.1.0"
+
+[deps]
