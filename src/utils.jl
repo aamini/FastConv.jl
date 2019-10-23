@@ -6,7 +6,7 @@ export convn, fastconv
 # Alexander Amini, Alan Edelman, Berthold Horn
 ##############################################
 
-@generated function convn(E::Array{T,N}, k::Array{T,N}) where {T,N}
+@generated function convn(E::AbstractArray{T,N}, k::AbstractArray{T,N}) where {T,N}
     quote
         sizeThreshold = 21;
         if length(k) <= sizeThreshold || $N > 2
@@ -28,7 +28,7 @@ export convn, fastconv
 end
 
 # direct version (do not check if threshold is satisfied)
-@generated function fastconv(E::Array{T,N}, k::Array{T,N}) where {T,N}
+@generated function fastconv(E::AbstractArray{T,N}, k::AbstractArray{T,N}) where {T,N}
     quote
 
         retsize = [size(E)...] + [size(k)...] .- 1
@@ -43,7 +43,7 @@ end
 
 
 # in place helper operation to speedup memory allocations
-@generated function convn!(out::Array{T}, E::Array{T,N}, k::Array{T,N}) where {T,N}
+@generated function convn!(out::AbstractArray{T}, E::AbstractArray{T,N}, k::AbstractArray{T,N}) where {T,N}
     quote
         @inbounds begin
             @nloops $N x E begin

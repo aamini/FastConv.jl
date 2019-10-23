@@ -32,3 +32,10 @@ k2 = rand(3,3)
 A1_2 = convn(convn(A,k1), k2)
 A_12 = fastconv(A, fastconv(k1, k2))
 @test A1_2 \approx A_12
+
+# Test Array Views
+u = Float32.(reshape(1:12,(3,4)))
+v = Float32.(reshape(1:6,(3,2)))
+y_loop = [convn(u[i,:],v[i,:]) for i in 1:size(u)[1]]
+y_broadcast = convn.(eachrow(u),eachrow(v))
+@test y_loop ≈ y_broadcast
